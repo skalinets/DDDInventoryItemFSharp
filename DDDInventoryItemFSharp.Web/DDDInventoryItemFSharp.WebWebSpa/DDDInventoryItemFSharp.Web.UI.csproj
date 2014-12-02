@@ -248,13 +248,11 @@
       <Project>{4198fad2-a8b5-491f-a2b3-6b719c27bf5d}</Project>
       <Name>DDDInventoryItemFSharp</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DDDInventoryItemFSharp.WebWebAppSpa\DDDInventoryItemFSharp.Web.fsproj">
-      <Project>{a999575f-c66e-42bf-a70f-655d4c3f0069}</Project>
-      <Name>DDDInventoryItemFSharp.Web</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
