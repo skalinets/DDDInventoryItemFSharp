@@ -9,7 +9,7 @@ open EventStore.ClientAPI
 /// Creates and opens an EventStore connection.
 let conn endPoint =   
     let conn = EventStoreConnection.Create(endPoint)
-    conn.Connect()
+    conn.ConnectAsync().Wait()
     conn
 
 /// Creates event store based repository.

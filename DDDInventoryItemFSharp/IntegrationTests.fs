@@ -18,10 +18,10 @@ let id = System.Guid.Parse("88085239-6f0f-48c6-b73d-017333cb99ba")
 
 [<Xunit.Fact>]
 let initProjections() = 
-    let pm = new ProjectionsManager(new EventStore.ClientAPI.Common.Log.ConsoleLogger(), endPoint)
+    let pm = new ProjectionsManager(new EventStore.ClientAPI.Common.Log.ConsoleLogger(), endPoint, System.TimeSpan.FromSeconds 30.0)
     let file p = System.IO.File.ReadAllText(@"..\..\" + p)
-    pm.CreateContinuous("FlatReadModelProjection", file "FlatReadModelProjection.js", UserCredentials("admin", "changeit"))
-    pm.CreateContinuous("OverviewReadModelProjection", file "OverviewReadModelProjection.js", UserCredentials("admin", "changeit")) 
+    pm.CreateContinuousAsync("FlatReadModelProjection", file "FlatReadModelProjection.js", UserCredentials("admin", "changeit")).Wait()
+    pm.CreateContinuousAsync("OverviewReadModelProjection", file "OverviewReadModelProjection.js", UserCredentials("admin", "changeit")).Wait() 
     ()
 
 [<Xunit.Fact>]
